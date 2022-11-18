@@ -456,7 +456,6 @@ void init()
 		treeBlock();
 	}
 
-
 }
 
 int main(int argc, char** argv)
