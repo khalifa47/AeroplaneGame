@@ -113,7 +113,7 @@ void display()
 	{
 		gameEnd(flags);
 	}
-	else if (flags.welcomeFlag == true)//Welcome Screen
+	else if (flags.welcomeFlag == true)
 	{
 		welcome();
 	}

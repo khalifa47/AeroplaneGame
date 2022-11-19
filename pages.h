@@ -21,14 +21,14 @@ void welcome()
 	glColor3f(0.137, 0.137, 0.556);
 	drawString(47, 42, 0, GLUT_BITMAP_HELVETICA_18, (char*)"PLAY");
 
-	// button 2 -> instructions
+	// button 2 -> controls
 	glColor3f(0.196, 0.196, 0.8);
 	glRectf(39.5, 29.5, 60.5, 35.5);
 
 	glColor3f(0.8, 0.8, 0.8);
 	glRectf(40, 30, 60, 35);
 	glColor3f(0.137, 0.137, 0.556);
-	drawString(41, 31, 0, GLUT_BITMAP_HELVETICA_18, (char*)"INSTRUCTIONS");
+	drawString(41, 31, 0, GLUT_BITMAP_HELVETICA_18, (char*)"CONTROLS");
 
 	// button 3 -> EXIT
 	glColor3f(0.196, 0.196, 0.8);
@@ -80,18 +80,16 @@ void instructions()
 	drawString(46, 6, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"BACK");
 
 	glColor3f(0.137, 0.137, 0.556);
-	drawString(37, 75, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"HOW TO PLAY");
-	drawString(23, 69, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Click and hold mouse left key to gain altitude of ");
-	drawString(23, 65, 0, GLUT_BITMAP_HELVETICA_18, (char*)"    the plane.");
-	drawString(23, 61, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Release the mouse left key to reduce the altitude.");
-	drawString(23, 57, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Use the Right mouse key to speed up the plane(NOS)");
-	drawString(23, 53, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Main aim of the game is to avoid the obstacles ");
-	drawString(23, 49, 0, GLUT_BITMAP_HELVETICA_18, (char*)"    such as buildings and clouds.");
-	drawString(23, 45, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Also the meter at the bottom shows the distance ");
-	drawString(23, 41, 0, GLUT_BITMAP_HELVETICA_18, (char*)"    travelled,NITROS left,Atitude and the LEVEL.");
-	drawString(23, 37, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- As you reach distance multples of 50 tour level ");
-	drawString(23, 33, 0, GLUT_BITMAP_HELVETICA_18, (char*)"    increases as well as the speed of the plane.");
-	drawString(33, 27, 0, GLUT_BITMAP_HELVETICA_18, (char*)" ENJOY PLAYING THE GAME");
+	drawString(37, 75, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"CONTROLS");
+	drawString(23, 69, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- LEFT MOUSE or UP keys: Gain Altitude");
+	drawString(23, 65, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- DOWN key or release mouse: Reduce Altitude");
+	drawString(23, 61, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- RIGHT MOUSE or RIGHT key: Boost");
+	drawString(23, 57, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- LEFT key: Reduce Boost");
+
+	drawString(23, 45, 0, GLUT_BITMAP_HELVETICA_18, (char*)"* Avoid buildings and clouds");
+	drawString(23, 41, 0, GLUT_BITMAP_HELVETICA_18, (char*)"* Next level after 50 points increases speed");
+
+	drawString(42, 27, 0, GLUT_BITMAP_HELVETICA_18, (char*)"HAPPY FLYING!");
 
 	glutPostRedisplay();
 }
