@@ -12,7 +12,7 @@
 #include "environment.h"
 #include "welcome.h"
 
-#define BLOCKSPEED 0.1
+#define BLOCKSPEED 0.3
 #define BOOSTER_MAX 100
 
 
@@ -88,16 +88,16 @@ void treeBlock() {
 
 void printScore()
 {
-	glColor3f(1.0, 1.0, 0.0);//score
+	glColor3f(1.0, 1.0, 0.0);
 
 	sprintf_s(flags.slevel, "%d", (int)flags.level);
 	drawString(58, 1.8, 0, GLUT_BITMAP_TIMES_ROMAN_10, (char*)"Level");
 	drawString(58, 3.5, 0, GLUT_BITMAP_TIMES_ROMAN_24, flags.slevel);
 
 	if (booster > 0 && boost)
-		flags.score += 0.03;//SCORE with booster
+		flags.score += 0.03;
 	else
-		flags.score += 0.005;//SCORE without booster
+		flags.score += 0.005;
 
 	drawString(38, 1.5, 0, GLUT_BITMAP_TIMES_ROMAN_10, (char*)"Distance");
 	sprintf_s(flags.score_Str, "%d m", (int)flags.score);
@@ -109,7 +109,6 @@ void printScore()
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//GameOver Checking
 	if (flags.gameEndStatus == true)
 	{
 		gameEnd(flags);

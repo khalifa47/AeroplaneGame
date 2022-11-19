@@ -44,10 +44,6 @@ void gameEnd(Flags flags)
 	drawString(23, 56, 0, GLUT_BITMAP_HELVETICA_18, (char*)"LEVEL         :");
 	drawString(40, 56, 0, GLUT_BITMAP_TIMES_ROMAN_24, flags.slevel);
 
-
-
-	drawString(33, 30, 0, GLUT_BITMAP_HELVETICA_18, (char*)" ENJOY PLAYING THE GAME");
-
 	glutPostRedisplay();
 
 }

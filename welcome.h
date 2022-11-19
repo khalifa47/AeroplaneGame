@@ -52,8 +52,8 @@ void welcome()
 	glPushMatrix();
 
 	glColor3f(0.8, 0.8, 0.8);
-	drawString(25.5, 92, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"COMPUTER GRAPHICS PROJECT ");
-	drawString(35.5, 80, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"AIRPLANE GAME ");
+	drawString(25.5, 92, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"COMPUTER GRAPHICS GROUP 1 PROJECT");
+	drawString(35.5, 80, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"AEROPLANE GAME ");
 	glPopMatrix();
 	glColor3f(0.137, 0.137, 0.556);
 
