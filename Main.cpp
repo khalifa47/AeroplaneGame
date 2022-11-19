@@ -128,16 +128,16 @@ void display()
 	}
 	else
 	{
-
-		if ((int)flags.score % 50 == 0 && flags.lflag == true)// l-level
+		// change level after 50 points
+		if ((int)flags.score % 50 == 0 && flags.levelChangeFlag == true)
 		{
-			flags.lflag = false;
+			flags.levelChangeFlag = false;
 			flags.level++;
 			blockSpeed += 0.01;
 		}
-		else if ((int)flags.score % 50 != 0 && flags.lflag == false)
+		else if ((int)flags.score % 50 != 0 && flags.levelChangeFlag == false)
 		{
-			flags.lflag = true;
+			flags.levelChangeFlag = true;
 		}
 
 		glPushMatrix();
