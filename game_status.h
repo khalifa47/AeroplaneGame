@@ -3,7 +3,7 @@
 
 typedef struct Flags
 {
-	bool lflag = true, wflag = true, gameEndStatus = false, instflag = false, abtflag = false, start = false;
+	bool lflag = true, welcomeFlag = true, gameEndStatus = false, instructionFlag = false, start = false;
 	float score = 1;
 	char score_Str[20], slevel[20];
 	int level = 1;

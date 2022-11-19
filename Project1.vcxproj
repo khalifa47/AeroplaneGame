@@ -152,7 +152,7 @@
     <ClInclude Include="game_status.h" />
     <ClInclude Include="jet.h" />
     <ClInclude Include="obstacles.h" />
-    <ClInclude Include="welcome.h" />
+    <ClInclude Include="pages.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

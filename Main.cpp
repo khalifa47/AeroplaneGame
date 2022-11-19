@@ -10,7 +10,7 @@
 #include "obstacles.h"
 #include "jet.h"
 #include "environment.h"
-#include "welcome.h"
+#include "pages.h"
 
 #define BLOCKSPEED 0.3
 #define BOOSTER_MAX 100
@@ -113,89 +113,13 @@ void display()
 	{
 		gameEnd(flags);
 	}
-	else if (flags.wflag == true)//Welcome Screen
+	else if (flags.welcomeFlag == true)//Welcome Screen
 	{
 		welcome();
 	}
-	else if (flags.instflag == true)
+	else if (flags.instructionFlag == true)
 	{
-		glColor3f(0.3, 0.56, 0.84);   // background
-		glBegin(GL_POLYGON);
-		glVertex3f(0.0, 0.0, 0.0);
-		glColor3f(0.137, 0.137, 0.556);
-		glVertex3f(100.0, 0.0, 0.0);
-		glColor3f(0.196, 0.196, 0.8);
-		glVertex3f(100.0, 100.0, 0.0);
-		glVertex3f(0.0, 100.0, 0.0);
-		glEnd();
-		glPushMatrix();
-		glScalef(0.8, 0.8, 0);
-		drawJet();
-		glPopMatrix();
-		glColor3f(0.137, 0.137, 0.556);
-		glRectf(20.0, 20.0, 80.0, 80.0);
-		glColor3f(0.8, 0.8, 0.8);
-		glRectf(21.0, 21.0, 79.0, 79.0);
-
-
-		glColor3f(0.196, 0.196, 0.8);
-		glRectf(40, 5, 60, 10);
-		glColor3f(0.8, 0.8, 0.8);
-		glRectf(40.5, 5.5, 59.5, 9.5);
-
-		glColor3f(0.137, 0.137, 0.556);
-		drawString(46, 6, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"BACK");
-
-		glColor3f(0.137, 0.137, 0.556);
-		drawString(37, 75, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"HOW TO PLAY");
-		drawString(23, 69, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Click and hold mouse left key to gain altitude of ");
-		drawString(23, 65, 0, GLUT_BITMAP_HELVETICA_18, (char*)"    the plane.");
-		drawString(23, 61, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Release the mouse left key to reduce the altitude.");
-		drawString(23, 57, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Use the Right mouse key to speed up the plane(NOS)");
-		drawString(23, 53, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Main aim of the game is to avoid the obstacles ");
-		drawString(23, 49, 0, GLUT_BITMAP_HELVETICA_18, (char*)"    such as buildings and clouds.");
-		drawString(23, 45, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- Also the meter at the bottom shows the distance ");
-		drawString(23, 41, 0, GLUT_BITMAP_HELVETICA_18, (char*)"    travelled,NITROS left,Atitude and the LEVEL.");
-		drawString(23, 37, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- As you reach distance multples of 50 tour level ");
-		drawString(23, 33, 0, GLUT_BITMAP_HELVETICA_18, (char*)"    increases as well as the speed of the plane.");
-		drawString(33, 27, 0, GLUT_BITMAP_HELVETICA_18, (char*)" ENJOY PLAYING THE GAME");
-
-		glutPostRedisplay();
-
-	}
-	else if (flags.abtflag == true)
-	{
-		glColor3f(0.3, 0.56, 0.84);
-		glBegin(GL_POLYGON);
-		glVertex3f(0.0, 0.0, 0.0);
-		glColor3f(0.137, 0.137, 0.556);
-		glVertex3f(100.0, 0.0, 0.0);
-		glColor3f(0.196, 0.196, 0.8);
-		glVertex3f(100.0, 100.0, 0.0);
-		glVertex3f(0.0, 100.0, 0.0);
-		glEnd();
-		glPushMatrix();
-		glScalef(0.8, 0.8, 0);
-		drawJet();
-		glPopMatrix();
-		glColor3f(0.137, 0.137, 0.556);
-		glRectf(20.0, 20.0, 80.0, 80.0);
-		glColor3f(0.8, 0.8, 0.8);
-		glRectf(21.0, 21.0, 79.0, 79.0);
-
-
-		glColor3f(0.196, 0.196, 0.8);
-		glRectf(40, 5, 60, 10);
-		glColor3f(0.8, 0.8, 0.8);
-		glRectf(40.5, 5.5, 59.5, 9.5);
-		glColor3f(0.137, 0.137, 0.556);
-		drawString(46, 6, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"BACK");
-
-		glColor3f(0.137, 0.137, 0.556);
-		drawString(44, 75, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"ABOUT");
-		drawString(21, 61, 0, GLUT_BITMAP_HELVETICA_18, (char*)"            A FINE GAME BY GROUP 1");
-		glutPostRedisplay();
-
+		instructions();
 	}
 	else if ((b.state && buildingHit(b, j)) || boundHit(j) || (s.state && cloudHit(s, j)))
 	{
@@ -327,20 +251,18 @@ void mouse(int button, int state, int x, int y)
 {
 	int mx = x * 100 / SCREENW, my = (SCREENH - y) * 100 / SCREENH;
 
-	if (flags.instflag || flags.abtflag || flags.gameEndStatus)
+	if (flags.instructionFlag || flags.gameEndStatus)
 	{
 		if (mx > 40 && mx < 60)
 		{
 			if (my > 5 && my < 10)
 			{
-				flags.wflag = true;
-				if (flags.instflag)
-					flags.instflag = false;
-				else if (flags.abtflag)
-					flags.abtflag = false;
+				flags.welcomeFlag = true;
+				if (flags.instructionFlag)
+					flags.instructionFlag = false;
 				if (flags.gameEndStatus)
 				{
-					flags.wflag = true;
+					flags.welcomeFlag = true;
 					flags.gameEndStatus = false;
 					j.plane_mvmt = 0;
 					flags.start = false;
@@ -355,30 +277,24 @@ void mouse(int button, int state, int x, int y)
 			}
 		}
 	}
-	if (flags.wflag == true)
+	if (flags.welcomeFlag == true)
 	{
 		if (mx > 40 && mx < 60)
 		{
 			if (my > 40 && my < 45)
 			{
 				flags.start = true;
-				flags.wflag = false;
+				flags.welcomeFlag = false;
 			}
 			else if (my > 30 && my < 35)
 			{
-				flags.instflag = true;
-				flags.wflag = false;
+				flags.instructionFlag = true;
+				flags.welcomeFlag = false;
 			}
 			else if (my > 20 && my < 25)
 			{
-				flags.abtflag = true;
-				flags.wflag = false;
-			}
-			else if (my > 10 && my < 15)
-			{
 				exit(0);
 			}
-
 		}
 	}
 	else
