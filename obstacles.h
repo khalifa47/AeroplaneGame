@@ -1,5 +1,4 @@
 #pragma once
-#include "jet.h"
 typedef struct Building
 {
 	float block_x, block_y;

@@ -5,10 +5,10 @@
 #include<stdio.h>
 #include<math.h>
 
+#include "jet.h"
 #include "common_functions.h"
 #include "game_status.h"
 #include "obstacles.h"
-#include "jet.h"
 #include "environment.h"
 #include "pages.h"
 

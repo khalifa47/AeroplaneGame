@@ -1,41 +1,20 @@
 #pragma once
 void welcome()
 {
-	glColor3f(0.3, 0.56, 0.84);   //welcome background
-	glBegin(GL_POLYGON);
-	glVertex3f(0.0, 0.0, 0.0);
-	glColor3f(0.137, 0.137, 0.556);
-	glVertex3f(100.0, 0.0, 0.0);
-	glColor3f(0.196, 0.196, 0.8);
-	glVertex3f(100.0, 100.0, 0.0);
-	glVertex3f(0.0, 100.0, 0.0);
-	glEnd();
-	drawJet();
+	background();
 
 	// button 1 -> PLAY
-	glColor3f(0.196, 0.196, 0.8);
-	glRectf(39.5, 39.5, 60.5, 45.5);
-
-	glColor3f(0.8, 0.8, 0.8);
-	glRectf(40, 40, 60, 45);
+	borderBox(39.5, 39.5, 60.5, 45.5);
 	glColor3f(0.137, 0.137, 0.556);
 	drawString(47, 42, 0, GLUT_BITMAP_HELVETICA_18, (char*)"PLAY");
 
-	// button 2 -> controls
-	glColor3f(0.196, 0.196, 0.8);
-	glRectf(39.5, 29.5, 60.5, 35.5);
-
-	glColor3f(0.8, 0.8, 0.8);
-	glRectf(40, 30, 60, 35);
+	// button 2 -> CONTROLS
+	borderBox(39.5, 29.5, 60.5, 35.5);
 	glColor3f(0.137, 0.137, 0.556);
 	drawString(41, 31, 0, GLUT_BITMAP_HELVETICA_18, (char*)"CONTROLS");
 
 	// button 3 -> EXIT
-	glColor3f(0.196, 0.196, 0.8);
-	glRectf(39.5, 19.5, 60.5, 25.5);
-
-	glColor3f(0.8, 0.8, 0.8);
-	glRectf(40, 20, 60, 25);
+	borderBox(39.5, 19.5, 60.5, 25.5);
 	glColor3f(0.137, 0.137, 0.556);
 	drawString(46, 21, 0, GLUT_BITMAP_HELVETICA_18, (char*)"EXIT");
 
@@ -52,33 +31,15 @@ void welcome()
 
 void instructions()
 {
-	glColor3f(0.3, 0.56, 0.84);   // background
-	glBegin(GL_POLYGON);
-	glVertex3f(0.0, 0.0, 0.0);
-	glColor3f(0.137, 0.137, 0.556);
-	glVertex3f(100.0, 0.0, 0.0);
-	glColor3f(0.196, 0.196, 0.8);
-	glVertex3f(100.0, 100.0, 0.0);
-	glVertex3f(0.0, 100.0, 0.0);
-	glEnd();
-	glPushMatrix();
-	glScalef(0.8, 0.8, 0);
-	drawJet();
-	glPopMatrix();
-	glColor3f(0.137, 0.137, 0.556);
-	glRectf(20.0, 20.0, 80.0, 80.0);
-	glColor3f(0.8, 0.8, 0.8);
-	glRectf(21.0, 21.0, 79.0, 79.0);
+	background();
 
-
-	glColor3f(0.196, 0.196, 0.8);
-	glRectf(40, 5, 60, 10);
-	glColor3f(0.8, 0.8, 0.8);
-	glRectf(40.5, 5.5, 59.5, 9.5);
-
+	// back button
+	borderBox(40, 5, 60, 10);
 	glColor3f(0.137, 0.137, 0.556);
 	drawString(46, 6, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"BACK");
 
+	// content
+	borderBox(20.0, 20.0, 80.0, 80.0);
 	glColor3f(0.137, 0.137, 0.556);
 	drawString(37, 75, 0, GLUT_BITMAP_TIMES_ROMAN_24, (char*)"CONTROLS");
 	drawString(23, 69, 0, GLUT_BITMAP_HELVETICA_18, (char*)"- LEFT MOUSE or UP keys: Gain Altitude");
